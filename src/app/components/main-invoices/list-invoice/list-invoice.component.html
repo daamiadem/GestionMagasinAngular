@@ -1,0 +1,79 @@
+<div class="card card-table">
+  <div class="card-body">
+
+    <div class="table-responsive">
+      <div class="dataTables_wrapper no-footer">
+
+        <div class="dataTables_length" [ngStyle]="{color:'red'}">
+          <label>Show
+            <select class="" data-show="10,25,50,100" name="DataTables_Table_length">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            entries
+          </label>
+        </div>
+        <table class="table table-stripped table-hover datatable dataTable no-footer table-wrapper-scroll-y my-custom-scrollbar">
+          <thead class="thead-light">
+            <tr>
+              <th class="sorting_asc" tabindex="0" rowspan="1" colspan="1" style="width: 139.8px;" aria-label="Invoice Number: activate to sort column descending" aria-sort="ascending">Invoice No</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let invoice of invoices ; let i=index">
+              <td>{{invoice.idFacture}}</td>
+              <td>{{invoice.client.nom}} {{invoice.client.prenom}}</td>
+              <td>{{invoice.dateFacture}}</td>
+              <td>{{invoice.montantFacture}}</td>
+              <td>
+
+                <div *ngIf="invoice.active==true; else elseBlock">
+									<i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>
+
+									<span class="badge badge-warning badge-pill px-25">Unpaid</span>
+								</div>
+                <ng-template #elseBlock>
+                  <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>
+
+									<span class="badge badge-success badge-pill px-25">Paid</span>
+                </ng-template>
+              </td>
+              <td>
+
+                <a class="btn btn-primary btn-sm" [routerLink]="['showInvoice',invoice.idFacture ]">
+                  Show
+                </a>
+                <a class="btn btn-danger btn-sm" (click)="open(content,invoice.idFacture,i)">
+                  Delete
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">×</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <p>Are you sure to delete this?</p>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Cancel</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('yes')">Yes</button>
+  </div>
+</ng-template>

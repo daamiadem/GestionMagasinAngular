@@ -1,0 +1,105 @@
+
+<div class="container">
+  <h3> Ajouter un utilisateur </h3>
+
+  <form   [formGroup]="myForm" (submit)="saveCustomer()">
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+        <label> Nom</label>
+
+        <input type="text" class ="form-control" formControlName ="nom">
+
+        <div class="alert alert-danger" role="alert" *ngIf="myNom.errors">
+          <div *ngIf="myNom.errors.required">Champs obligatoire</div>
+      </div>
+
+      </div>
+
+
+
+      <div class="form-group col-md-6">
+            <label> Prénom</label>
+            <input type="text" class ="form-control" formControlName= "prenom">
+
+          <div class="alert alert-danger" role="alert" *ngIf="myPrenom.errors">
+            <div *ngIf="myPrenom.errors.required">Champs obligatoire</div>
+        </div>
+
+      </div>
+
+  </div>
+
+  <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label> Email</label>
+          <input type="text" class ="form-control" formControlName = "email">
+
+        <div class="alert alert-danger" role="alert" *ngIf="myEmail.errors">
+          <div *ngIf="myEmail.errors.required">Champs obligatoire</div>
+          <div *ngIf="myEmail.errors.email">L'email doit être valide</div>
+
+      </div>
+
+    </div>
+
+
+
+
+        <div class="form-group col-md-6">
+            <label> Date de Naissance</label>
+            <input type="date" class ="form-control" formControlName = "dateNaissance">
+
+          <div class="alert alert-danger" role="alert" *ngIf="mydateNaissance.errors">
+            <div *ngIf="mydateNaissance.errors.required">Champs obligatoire</div>
+        </div>
+      </div>
+
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label> Profession</label>
+        <select class ="custom-select" formControlName= "profession">
+               <option selected>Open this select menu</option>
+               <option value="CADRE">CADRE</option>
+               <option value="COMMERCIAL">COMMERCIAL</option>
+               <option value="DOCTEUR">DOCTEUR</option>
+               <option value="ETUDIANT">ETUDIANT</option>
+               <option value="INGENIEUR">INGENIEUR</option>
+               <option value="AUTRE">AUTRE</option>
+             </select>
+
+      <div class="alert alert-danger" role="alert" *ngIf="myProfession.errors">
+        <div *ngIf="myProfession.errors.required">Champs obligatoire</div>
+    </div>
+  </div>
+
+      <div class="form-group col-md-6">
+
+        <label> Categorie Client</label>
+        <select class="custom-select" formControlName= "categorieClient">
+            <option selected>Open this select menu</option>
+            <option value="FIDELE">FIDELE</option>
+            <option value="ORDINAIRE">ORDINAIRE</option>
+            <option value="PREMIUM">PREMIUM</option>
+
+          </select>
+
+        <div class="alert alert-danger" role="alert" *ngIf="mycategorieClient.errors">
+          <div *ngIf="mycategorieClient.errors.required">Champs obligatoire</div>
+      </div>
+    </div>
+
+        </div>
+
+
+
+
+            <button class = "btn btn-success" type ="submit" [disabled]="myForm.untouched">Ajouter</button>
+    </form>
+    <br>
+

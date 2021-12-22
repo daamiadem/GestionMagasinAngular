@@ -1,0 +1,52 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+      <form [formGroup]="myForm" (submit)="Onadd()" >
+          <div class="modal-header">
+              <h4 class="modal-title">Add Stock</h4>
+              <button type="button" [routerLink]="['/stock']" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                  <label>Libelle Stock</label>
+                  <input type="text" class="form-control" formControlName="libelleStock">
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="libelleStock.errors">
+                  <div *ngIf="myForm.get('libelleStock').errors.required">champ obligatoire</div>
+                  <div *ngIf="myForm.get('libelleStock').errors.pattern" >pattern non </div>
+                  </div>
+              <div class="form-group">
+                  <label>Quantité Stock</label>
+                  <input type="text" class="form-control" formControlName="qteStock">
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="qteStock.errors">
+                  <div *ngIf="myForm.get('qteStock').errors.required">champ obligatoire</div>
+                  <div *ngIf="myForm.get('qteStock').errors.pattern" >only numbers allowed </div>
+                  </div>
+
+              <div class="form-group">
+                  <label>Quantité Minimal	</label>
+                  <input type="text" class="form-control" formControlName="qteMin">
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="qteMin.errors">
+                  <div *ngIf="myForm.get('qteMin').errors.required">champ obligatoire</div>
+                  <div *ngIf="myForm.get('qteMin').errors.pattern" >only numbers allowed </div>
+                  </div>
+                  <p>min :{{qteMin.value}} </p>
+                  {{qteStock.value}}
+                  {{myForm.get('qteStock').value>myForm.get('qteMin').value}}
+                  {{444>3333}}
+                  <div class="alert alert-danger" role="alert" *ngIf="qteMin.value>=qteStock.value">
+                      <div >Minimum quantity must be lower than stock quantity</div>
+                      </div>
+              </div>
+              <div class="modal-footer">
+        <input type="button" class="btn btn-default" [routerLink]="['/stock']" data-dismiss="modal" value="Cancel">
+        <div *ngIf="myForm.valid">
+
+                  <input type="submit" class="btn btn-success" value="Add">
+                  </div>
+
+      </div>
+      </form>
+  </div>
+</div>

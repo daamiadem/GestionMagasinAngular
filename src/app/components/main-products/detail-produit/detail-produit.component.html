@@ -1,0 +1,39 @@
+
+
+      <main class="container">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+          <img data-image="red" class="active" src="../assets/images/produit.jpg" alt="">
+        </div>
+
+
+        <!-- Right Column -->
+        <div class="right-column">
+
+          <!-- Product Description -->
+          <div class="product-description">
+            <span>{{produit.detailProduitEntity.categorieProduit}}</span>
+            <h1>{{produit.libelleProduit}}</h1>
+            <p>AJOUTE LE : {{produit.detailProduitEntity.dateCreation}}</p>
+            <p>MODIFIE LE : {{produit.detailProduitEntity.dateDerniereModification}}</p>
+          </div>
+
+          <!-- Product Configuration -->
+          <div class="product-configuration">
+
+
+
+
+            <!-- Cable Configuration -->
+            <div class="cable-config">
+              <span>CODE DU PRODUIT  : {{produit.codeProduit}}</span>
+            </div>
+          </div>
+
+          <!-- Product Pricing -->
+          <div class="product-price">
+            <span>PRIX DU PRODUIT  : {{produit.prixUnitaire}}</span>
+          </div>
+        </div>
+      </main>

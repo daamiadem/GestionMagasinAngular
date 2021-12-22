@@ -1,0 +1,55 @@
+<h3 style="text-align: center;" class="text-md-center fw-bold">Ajouter un Fournisseur </h3>
+<form [formGroup]="FormProviderAdd" (submit)="Ajouterf()">
+
+    <div class="form-group" >
+        <label  >Code de Fournisseur</label>
+        <input type="text" class="form-control" formControlName="codeFournisseur">
+    </div>
+    <div *ngIf="codeFournisseurc.invalid&&codeFournisseurc.touched">
+        <div  class="alert alert-danger" *ngIf="codeFournisseurc.errors.required" role="alert">ce champs est obligatoire</div>
+    </div>
+    <div class="form-group">
+        <label>Libelle de Fournisseur</label>
+        <input type="text" class="form-control" formControlName="libelleFournisseur">
+    </div>
+    <div *ngIf="libelleFournisseurc.invalid&&libelleFournisseurc.touched">
+        <div  class="alert alert-danger" *ngIf="libelleFournisseurc.errors.required" role="alert">ce champs est obligatoire</div>
+    </div>
+    <div class="form-group">
+        <label>Adresse</label>
+        <input type="text" class="form-control" formControlName="adresseFournisseur">
+    </div>
+    <div *ngIf="adresseFournisseurc.invalid&&adresseFournisseurc.touched">
+        <div  class="alert alert-danger" *ngIf="adresseFournisseurc.errors.required" role="alert">ce champs est obligatoire</div>
+    </div>
+    <div class="form-group">
+        <label>Numéro de téléphone</label>
+        <input type="text" class="form-control" formControlName="numtel">
+    </div>
+    <div *ngIf="numtelC.invalid&&numtelC.touched">
+        <div  class="alert alert-danger" *ngIf="numtelC.errors.required" role="alert">ce champs est obligatoire</div>
+        <div  class="alert alert-danger" *ngIf="numtelC.errors.pattern" role="alert">ce champs doit contenir 8 chiffres</div>
+    </div>
+    <div class="form-group">
+        <label>Date de creation</label>
+        <input type="date" class="form-control" formControlName="dateCreation">
+    </div>
+    <div *ngIf="dateCreationC.invalid&&dateCreationC.touched">
+        <div  class="alert alert-danger" *ngIf="dateCreationC.errors.required" role="alert">ce champs est obligatoire</div>
+    </div>
+    <div class="form-group">
+        <label>Categorie de produit</label>
+        <select class="custom-select mr-sm-2"  formControlName="categorieProduit">
+            <option selected>Choose...</option>
+            <option value="ELECTROMENAGER">ELECTROMENAGER</option>
+            <option value="ALIMENTAIRE">ALIMENTAIRE</option>
+            <option value="QUINCAILLERIE">QUINCAILLERIE</option>
+          </select>
+    </div>
+    <div *ngIf="categorieProduitC.invalid&&categorieProduitC.touched">
+        <div  class="alert alert-danger" *ngIf="categorieProduitC.errors.required" role="alert">ce champs est obligatoire</div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" style="margin-left: 40%; margin-bottom: 20px;" value="Ajouter" >
+
+</form>

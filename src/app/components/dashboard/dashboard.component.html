@@ -1,0 +1,104 @@
+<button
+        class="btn btn-info"
+        (click)="showProduit()"
+        style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px"
+      >
+        AFFICHER
+      </button>
+
+<div class="container">
+
+  <div class="col-md-8">
+      <h2> &nbsp;    Dashboard</h2> <br>
+  </div>
+
+
+<div class="row">
+  <div class="col-xl-7 col-lg-6">
+      <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Satistique sur la profession de nos clients</h6>
+          </div>
+          <!-- Card Body-->
+          <div class="card-body">
+              <div id="chartProfession">
+                  <apx-chart
+                    [series]="chartOptionsProfession.series"
+                    [chart]="chartOptionsProfession.chart"
+                    [plotOptions]="chartOptionsProfession.plotOptions"
+                    [dataLabels]="chartOptionsProfession.dataLabels"
+                    [xaxis]="chartOptionsProfession.xaxis"
+                    [yaxis]="chartOptionsProfession.yaxis"
+                    [title]="chartOptionsProfession.title"
+              ></apx-chart>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Donut Chart -->
+<div class="col-xl-5 col-lg-6">
+  <div class="card shadow mb-4">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Nombre de client par catégorie</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body">
+          <div id="chart2">
+              <apx-chart
+                [series]="chartOptions2.series"
+                [chart]="chartOptions2.chart"
+                [labels]="chartOptions2.labels"
+                [responsive]="chartOptions2.responsive"
+          ></apx-chart>
+
+      </div>
+  </div>
+</div>
+</div>
+<div class="col-xl-5 col-lg-6">
+  <div class="card shadow mb-4">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Fournisseur Par Categorie</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body">
+        <div id="chart">
+            <apx-chart
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [labels]="chartOptions.labels"
+              [responsive]="chartOptions.responsive"
+            ></apx-chart>
+          </div>
+  </div>
+</div>
+</div>
+
+<div class="card shadow mb-4">
+  <!-- Card Header - Dropdown -->
+  <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Produit Par Categorie</h6>
+  </div>
+  <!-- Card Body -->
+  <div class="card-body">
+    <div id="chart3">
+        <apx-chart
+          [series]="chartOptions3.series"
+          [chart]="chartOptions3.chart"
+          [labels]="chartOptions3.labels"
+          [responsive]="chartOptions3.responsive"
+        ></apx-chart>
+      </div>
+</div>
+</div>
+
+</div>
+
+
+

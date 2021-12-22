@@ -1,0 +1,43 @@
+<h3 style="text-align: center;" class="text-md-center fw-bold">Modifier un Fournisseur </h3>
+<form [formGroup]="FormProviderEdit" (submit)="editFournisseur()" >
+    <div class="form-group" >
+
+        <label>id de Fournisseur</label>
+        <input type="text" class="form-control" formControlName="idFournisseur">
+    </div>
+    <div class="form-group" >
+
+        <label>Code de Fournisseur</label>
+        <input type="text" class="form-control" formControlName="codeFournisseur">
+    </div>
+    <div class="form-group">
+        <label>Libelle de Fournisseur</label>
+        <input type="text" class="form-control" formControlName="libelleFournisseur">
+    </div>
+    <div class="form-group">
+        <label>Adresse</label>
+        <input type="text" class="form-control" formControlName="adresseFournisseur">
+    </div>
+    <div class="form-group">
+        <label>Numéro de téléphone</label>
+        <input type="text" class="form-control" formControlName="numtel">
+    </div>
+    <div *ngIf="numtelC.invalid&&numtelC.touched">
+        <div  class="alert alert-danger" *ngIf="numtelC.errors.pattern" role="alert">ce champs doit contenir 8 chiffres</div>
+    </div>
+    <div class="form-group">
+        <label>Date de creation</label>
+        <input type="date" class="form-control" formControlName="dateCreation">
+    </div>
+    <div class="form-group">
+        <label>Categorie de produit</label>
+        <select class="custom-select mr-sm-2" formControlName="categorieProduit">
+            <option selected>Choose...</option>
+            <option value="ELECTROMENAGER">ELECTROMENAGER</option>
+            <option value="ALIMENTAIRE">ALIMENTAIRE</option>
+            <option value="QUINCAILLERIE">QUINCAILLERIE</option>
+          </select>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" style="margin-left: 40%; margin-bottom: 20px;" value="Modifier">
+</form>

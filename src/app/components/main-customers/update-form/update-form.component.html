@@ -1,0 +1,107 @@
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <h1 class="modal-title">Modifier un client</h1>
+
+    <div class="modal-body">
+      <div class="container">
+    <form   [formGroup]="myForm" (submit)="edit()">
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+        <label> Nom</label>
+        <input type="text" class ="form-control" formControlName ="nom">
+      </div>
+
+      <div class="alert alert-danger" role="alert" *ngIf="myNom.errors">
+        <div *ngIf="myNom.errors.required">Champs obligatoire</div>
+    </div>
+
+      <div class="form-group col-md-6">
+            <label> Prénom</label>
+            <input type="text" class ="form-control" formControlName= "prenom">
+          </div>
+
+          <div class="alert alert-danger" role="alert" *ngIf="myPrenom.errors">
+            <div *ngIf="myPrenom.errors.required">Champs obligatoire</div>
+        </div>
+
+  </div>
+  <div class="form-row">
+</div>
+  <div class="form-row">
+
+        <div class="form-group col-md-12">
+          <label> Email</label>
+          <input type="text" class ="form-control" formControlName = "email">
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="myEmail.errors">
+          <div *ngIf="myEmail.errors.required">Champs obligatoire</div>
+      </div>
+
+</div>
+
+
+       <div class="form-row">
+
+        <div class="form-group col-md-12">
+            <label> Date de Naissance</label>
+            <input type="date" class ="form-control" formControlName = "dateNaissance">
+          </div>
+
+          <div class="alert alert-danger" role="alert" *ngIf="mydateNaissance.errors">
+            <div *ngIf="mydateNaissance.errors.required">Champs obligatoire</div>
+        </div>
+
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label> Profession</label>
+        <select class ="custom-select" formControlName= "profession">
+               <option selected>Open this select menu</option>
+               <option value="CADRE">CADRE</option>
+               <option value="COMMERCIAL">COMMERCIAL</option>
+               <option value="DOCTEUR">DOCTEUR</option>
+               <option value="ETUDIANT">ETUDIANT</option>
+               <option value="INGENIEUR">INGENIEUR</option>
+               <option value="AUTRE">AUTRE</option>
+             </select>
+      </div>
+
+      <div class="alert alert-danger" role="alert" *ngIf="myProfession.errors">
+        <div *ngIf="myProfession.errors.required">Champs obligatoire</div>
+    </div>
+
+      <div class="form-group col-md-6">
+
+        <label> Categorie Client</label>
+        <select class="custom-select" formControlName= "categorieClient">
+            <option selected>Open this select menu</option>
+            <option value="FIDELE">FIDELE</option>
+            <option value="ORDINAIRE">ORDINAIRE</option>
+            <option value="PREMIUM">PREMIUM</option>
+
+          </select>
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="mycategorieClient.errors">
+          <div *ngIf="mycategorieClient.errors.required">Champs obligatoire</div>
+      </div>
+
+        </div>
+
+<div class="row">
+  <div class="col-md-6">
+        <div *ngIf="myForm.valid">
+
+      <button  class = "btn btn-success" type ="submit">Modifier</button>
+  </div>
+</div>
+
+</div>
+    </form>
+    <br>
+  </div></div></div>
+  </ng-template>

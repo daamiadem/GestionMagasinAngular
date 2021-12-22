@@ -1,0 +1,28 @@
+dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
+
+::ng-deep .my-class {
+
+  .modal-dialog {
+    background-color: red;
+    padding: 1rem;
+  }
+  .modal-content {
+    color: white;
+  }
+  .modal-header {
+    background-color: red;
+  }
+  .modal-body {
+    background-color: green;
+  }
+}
+

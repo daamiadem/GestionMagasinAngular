@@ -1,0 +1,100 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+    .edit {
+	color: #FFC107;
+}
+.delete {
+	color: #F44336;
+}
+</style>
+
+
+<div class="container">
+    <div class="row">
+<div class="col-md-8" >
+    <h2> &nbsp;    Detail du <b  >client : {{list[0].client.nom}} {{list[0].client.prenom}}</b></h2>
+</div>
+
+<!--[value]="nom" #x-->
+<div class="container">
+ 	<div class="row">
+            <div class="col-md-7">
+
+<br><br>
+                <table class="table  table-bordered"  width="50%" style=" border-collapse: collapse; color: #858796;font-weight: bold;white-space: inherit;" >
+                    <thead class="thead-light">
+
+						<tr >
+							<th><span>id Facture</span></th>
+                            <th><span>montantRemise</span></th>
+							<th><span>montant Facture</span></th>
+							<th><span>dateFacture</span></th>
+                            <th scope="col-md-2"><span  style="color: #F44336;">Liste des produits</span></th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let u of list ;let i=index;">
+
+							<td>
+
+                                Facture n°{{u.idFacture}}
+                            </td>
+                            <td>
+
+                                {{u.montantRemise}} dt
+                               </td>
+                               <td>
+
+                                {{u.montantFacture}} dt
+                               </td>
+                               <td>
+
+                                {{u.dateFacture}}
+                               </td>
+
+                                <td style="width: 20%;">
+
+                                    <a (click)="ShowListProduit(u.idFacture,i)"  style="color: #F44336;"> <i class="material-icons" data-toggle="tooltip" title="more">&#xe5d4;</i></a>
+
+                                  </td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+                <div class="invoice-price">
+                    <div class="invoice-price-left">
+                       <div class="invoice-price-row">
+                          <div class="sub-price">
+
+                             <span class="text-inverse">Total depensé</span>
+                          </div>
+
+
+                       </div>
+                    </div>
+                    <div class="invoice-price-right">
+                       <small>TOTAL</small> <span class="f-w-600">{{total}} DT</span>
+                    </div>
+                 </div>
+
+
+</div>
+<div class="col-md-4">
+
+
+
+        <app-produit-achete-par-client *ngIf="show"  [idFacture]="IdFacture" [idClient]="IdClient" ></app-produit-achete-par-client>
+
+</div>
+</div>
+</div>

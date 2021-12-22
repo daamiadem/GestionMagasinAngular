@@ -1,0 +1,50 @@
+<form [formGroup]="detailInvoiceFrom">
+  <div class="table-responsive mt-4">
+    <p-table [value]="tableRowArray.controls" [responsive]="true" class="table table-center table-hover">
+      <ng-template pTemplate="header">
+        <tr>
+          <ng-container *ngFor="let col of columns">
+            <td>{{ col }}</td>
+          </ng-container>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+        <ng-container formArrayName="tableRowArray">
+            <tr [formGroupName]="rowIndex">
+                <td>
+                  <div class="form-group">
+                    <select type="text" class="form-control" formControlName="produit">
+                      <option value="">Select an item</option>
+                      <option *ngFor="let produit of produits" [ngValue]="produit">{{produit.libelleProduit}}</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <input type="number" class="form-control" formControlName="quantite" placeholder="Quantity" />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <input type="number" class="form-control" formControlName="remise" placeholder="Discount Amount" />
+                  </div>
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined pull-left" (click)="addNewRow(rowIndex)"></button>
+                    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined pull-right" (click)="onDeleteRow(rowIndex)"></button>
+                </td>
+            </tr>
+        </ng-container>
+    </ng-template>
+    </p-table>
+    <div class="card-footer">
+
+   </div>
+  </div>
+</form>

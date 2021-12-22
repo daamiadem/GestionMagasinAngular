@@ -1,0 +1,101 @@
+<div class="card card-table">
+  <div class="card-body">
+
+    <div class="table-responsive">
+      <div class="dataTables_wrapper no-footer">
+        <div class="dataTables_length" [ngStyle]="{color:'red'}">
+          <label>Show
+            <select class="" data-show="10,25,50,100" name="DataTables_Table_length">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            entries
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-stripped table-hover datatable dataTable no-footer" cellspacing="0">
+      <thead class="thead-light">
+        <tr>
+          <th>
+            <span>Nom</span>
+          </th>
+          <th>
+            <span>Prénom</span>
+          </th>
+          <th class="text-center">
+            <span>Email</span>
+          </th>
+          <th>
+            <span>Date de Naissance</span>
+          </th>
+          <th>
+            <span>Catégorie du client</span>
+          </th>
+          <th>
+            <span>Profession</span>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of list | paginate: { itemsPerPage: 4, currentPage: p }; let i=index; ">
+
+          <td>
+
+            {{u.nom}}
+          </td>
+          <td>
+
+            {{u.prenom}}
+          </td>
+          <td>
+
+            {{u.email}}
+          </td>
+          <td>
+
+            {{u.dateNaissance}}
+          </td>
+          <td>
+            {{u.categorieClient}}
+
+          </td>
+          <td>
+            {{u.profession}}
+
+          </td>
+
+          <td style="width: 20%;">
+
+            <a (click)="showEdit(u)" class="edit">
+              <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+            </a>
+
+            <a (click)="deleteCustomer(u.idClient,i)" class="delete" data-toggle="modal">
+              <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+            </a>
+
+
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="container">
+      <app-update-form *ngIf="show" [prop2]="customer" [CustomerToEdit]="customer" [test]="true" (edited)="updateCustomer($event)"></app-update-form>
+    </div>
+
+  </div>
+

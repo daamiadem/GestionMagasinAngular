@@ -1,0 +1,52 @@
+<div class="card ">
+	<div class="card-body">
+		<form class="form-card" [formGroup]="myForm" (submit)="onSubmit()">
+			<div class="row justify-content-between text-left">
+				<div class="form-group col-sm-6 flex-column d-flex">
+					<label for="libelleProduit">Libelle Produit</label>
+          <input type="text" class="form-control" id="libelleProduit" formControlName="libelleProduit" placeholder="Product Name">
+				</div>
+				<div class="form-group col-sm-6 flex-column d-flex">
+					<label for="codeProduit">Code produit</label>
+          <input type="text" class="form-control" id="codeProduit" formControlName="codeProduit" placeholder="Code produit">
+				</div>
+			</div>
+			<div class="row justify-content-between text-left">
+				<div class="form-group col-sm-6 flex-column d-flex">
+					<label for="prixUnitaire">Prix Unitaire</label>
+          <input type="text" class="form-control" id="prixUnitaire" formControlName="prixUnitaire" placeholder="Price">
+				</div>
+				<div class="form-group col-sm-6 flex-column d-flex">
+					<Label>Categorie :</Label>
+          <select name="categorieProduit" id="categorieProduit" formControlName="categorieProduit" class="form-control" >
+
+            <option value="ELECTROMENAGER">ELECTROMENAGER</option>
+            <option value="ALIMENTAIRE">ALIMENTAIRE</option>
+            <option value="QUINCAILLERIE">QUINCAILLERIE</option>
+          </select>
+				</div>
+			</div>
+			<div class="row justify-content-between text-left">
+				<div class="form-group col-sm-6 flex-column d-flex">
+          <select class ="custom-select" formControlName="stock" (change)="onChangeSelectStock($event)" >
+            <option selected>Select stock</option>
+            <option *ngFor="let stock of stocks" [value]="stock.idStock">{{stock.libelleStock}}</option>
+          </select>
+				</div>
+
+
+				<div class="form-group col-sm-6 flex-column d-flex">
+          <select class ="custom-select" formControlName="rayon" (change)="onChangeSelectRayon($event)" >
+            <option selected>Select rayon</option>
+            <option *ngFor="let rayon of rayons" [value]="rayon.idRayon">{{rayon.libelleRayon}}</option>
+          </select>
+				</div>
+			</div>
+			<div class="row justify-content-end">
+				<div class="form-group col-sm-6 ">
+					<button type="submit" class="btn btn-primary" >Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

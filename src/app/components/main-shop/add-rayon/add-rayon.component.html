@@ -1,0 +1,29 @@
+<div class="card ">
+	<div class="card-body">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success !</strong> Rayon successfully added.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form [formGroup]="rayonForm" (submit)="addRayon()">
+      <div class="form-group">
+        <label for="codeRayon">Code Rayon :</label>
+        <input type="text" class="form-control" id="codeRayon" formControlName="codeRayon" placeholder="code rayon ...">
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="codeRayon.errors && codeRayon.touched">
+				<div *ngIf="codeRayon.errors.required">Champs obligatoire</div>
+			</div>
+      <div class="form-group">
+        <label for="libelleRayon">Libelle Rayon :</label>
+        <input type="text" class="form-control" id="libelleRayon" formControlName="libelleRayon" placeholder="libelle rayon ...">
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="libelleRayon.errors && libelleRayon.touched">
+				<div *ngIf="libelleRayon.errors.required">Champs obligatoire</div>
+			</div>
+      <div class="float-right">
+        <button type="submit" class="btn btn-success" [disabled]="rayonForm.untouched && !rayonForm.errors">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

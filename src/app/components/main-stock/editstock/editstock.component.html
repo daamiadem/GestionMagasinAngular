@@ -1,0 +1,88 @@
+
+
+
+<ng-template #content let-modal>
+
+  <div class="modal-body">
+      <div class="modal-content">
+          <form [formGroup]="myForm" (submit)="edit()" >
+        <div class="modal-body">
+                  <h1 class="modal-title">Update Stock</h1>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-group">
+                      <h4>Libelle Stock</h4>
+                      <input type="text" class="form-control" formControlName="libelleStock">
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="libelleStock.errors">
+                      <div *ngIf="myForm.get('libelleStock').errors.required">champ obligatoire</div>
+                      <div *ngIf="myForm.get('libelleStock').errors.pattern" >pattern non </div>
+                      </div>
+                  <div class="form-group">
+                      <h4>Quantité Stock</h4>
+                      <input type="text" class="form-control" formControlName="qteStock">
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="qteStock.errors">
+                      <div *ngIf="myForm.get('qteStock').errors.required">champ obligatoire</div>
+                      <div *ngIf="myForm.get('qteStock').errors.pattern" >only numbers allowed </div>
+                      </div>
+                  <div class="form-group">
+                      <h4>	Quantité Minimal</h4>
+                      <input type="text" class="form-control" formControlName="qteMin">
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="qteMin.errors">
+                      <div *ngIf="myForm.get('qteMin').errors.required">champ obligatoire</div>
+                      <div *ngIf="myForm.get('qteMin').errors.pattern" >only numbers allowed </div>
+                      </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="qteMin.value>qteStock.value">
+                        <div >Minimum quantity must be above stock quantity</div>
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+            <div *ngIf="myForm.valid">
+
+                      <input type="submit" class="btn btn-info" value="Update" (click)="modal.close('Save click')">
+                      </div>
+          </div>
+          </form>
+      </div>
+  </div>
+  </ng-template>
+
+  <!-- <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <div class="input-group">
+        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+        </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <div class="input-group">
+          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          </div>
+        </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <input type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')" value ="save">
+    </div>
+    </ng-template> -->

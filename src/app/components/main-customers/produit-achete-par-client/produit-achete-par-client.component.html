@@ -1,0 +1,44 @@
+
+
+    <h3> Liste des produits de la facture n°{{idFacture}}</h3>
+    <table class="table table-bordered" style="color: #858796;font-weight: bold;white-space: inherit;" cellspacing="0">
+        <thead class="thead-light">
+
+<tr >
+  <th><span>Code Produit</span></th>
+  <th><span>libelle Produit</span></th>
+  <th><span>Prix unitaire</span></th>
+  <th><span>Catégorie Produit</span></th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let u of list ">
+
+
+              <td>
+                    {{u.codeProduit}}
+                </td>
+                <td>
+
+                    {{u.libelleProduit}}
+                   </td>
+                   <td>
+
+                    {{u.prixUnitaire}}
+                   </td>
+                   <td>
+
+                    {{u.detailProduitEntity.categorieProduit}}
+                </td>
+
+
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+

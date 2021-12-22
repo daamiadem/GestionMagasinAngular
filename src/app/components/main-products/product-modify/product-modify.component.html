@@ -1,0 +1,121 @@
+
+	
+	<div class="modal-body">
+        <h1 class="modal-title">Modifier Produit</h1>
+    
+        <div class="modal-body">
+          <div class="container">
+        <form   [formGroup]="myForm" (submit)="edit()">
+      
+          <div class="form-row">
+            <div class="form-group col-md-6">
+            <label> Libelle Produit</label>
+            <input type="text" class ="form-control" formControlName ="libelleProduit">
+          </div> 
+    
+          <div class="alert alert-danger" role="alert" *ngIf="libelleProduit.errors">
+            <div *ngIf="libelleProduit.errors.required">Champs obligatoire</div>
+        </div>
+    
+          <div class="form-group col-md-6">
+                <label> Code Produit</label>
+                <input type="text" class ="form-control" formControlName= "codeProduit">
+              </div>
+    
+              <div class="alert alert-danger" role="alert" *ngIf="codeProduit.errors">
+                <div *ngIf="codeProduit.errors.required">Champs obligatoire</div>
+            </div>
+    
+      </div>
+      <div class="form-row">
+    </div>
+       <div class="form-row">
+    
+            <div class="form-group col-md-12">
+              <label> Prix Unitaire</label>
+              <input type="text" class ="form-control" formControlName = "prixUnitaire">
+            </div>
+    
+            <div class="alert alert-danger" role="alert" *ngIf="prixUnitaire.errors">
+              <div *ngIf="prixUnitaire.errors.required">Champs obligatoire</div>
+          </div>
+    
+    </div>
+    <div class="form-row">
+    
+      <div class="form-group col-md-12">
+        <label> Rayon</label>
+        <div class="form-group col-sm-6 flex-column d-flex">
+          <select class ="custom-select" formControlName="rayon" (change)="onChangeSelectRayon($event)" >
+            <option selected>Select Rayon</option>
+            <option *ngFor="let rayon of rayons" [value]="rayon.idRayon">{{rayon.libelleRayon}}</option>
+          </select>
+                </div>
+      </div>
+  
+      <div class="alert alert-danger" role="alert" *ngIf="Rayon.errors">
+        <div *ngIf="Rayon.errors.required">Champs obligatoire</div>
+    </div>
+    
+  
+  </div> 
+  <div class="form-row">
+    
+      <!-- <div class="form-group col-md-12">
+        <label> Stock</label>
+        <input type="text" class ="form-control" formControlName = "stock">
+      </div> -->
+  
+      <div class="form-group col-md-12">
+          <label> Stock</label>
+          <div class="form-group col-sm-6 flex-column d-flex">
+            <select class ="custom-select" formControlName="stock" (change)="onChangeSelectRayon($event)" >
+              <option selected>Select Stock</option>
+              <option *ngFor="let stock of stocks" [value]="stock.idStock">{{stock.libelleStock}}</option>
+            </select>
+                  </div>
+        </div>
+  
+      <div class="alert alert-danger" role="alert" *ngIf="Stock.errors">
+        <div *ngIf="Stock.errors.required">Champs obligatoire</div>
+    </div>
+  
+  </div>
+  <div class="form-row">
+    
+      <div class="form-group col-md-12">
+        <label> Categorie</label>
+        <input type="text" class ="form-control" formControlName = "categorieProduit">
+      </div>
+  
+      <div class="alert alert-danger" role="alert" *ngIf="Categorie.errors">
+        <div *ngIf="Categorie.errors.required">Champs obligatoire</div>
+    </div>
+  
+  </div>
+  
+  
+  
+  
+    
+      
+           
+           
+      
+      
+          
+         
+    <div class="row">
+      <div class="col-md-6">
+            
+    
+          <button  class = "btn btn-success" type ="submit">Modifier</button>
+      
+    </div>
+    
+    </div>
+        </form>
+        <br>
+      </div></div></div>
+      
+    

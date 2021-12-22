@@ -1,0 +1,54 @@
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<h1>Libelle Stock : {{stock.libelleStock}} </h1>
+
+<h1>Quantité Stock : {{stock.qteStock}} </h1>
+
+<h1>Quantité Minimum: {{stock.qteMin}} </h1>
+
+
+            <h1 *ngIf="stock.qteStock>stock.qteMin"><span class="status text-success">&bull;</span> Disponible</h1>
+            <h1 *ngIf="stock.qteStock==stock.qteMin"><span class="status text-warning">&bull;</span> Restock!</h1>
+            <h1 *ngIf="stock.qteStock<stock.qteMin && stock.qteStock>0 "><span class="status text-dark ">&bull;</span>Stock under minimum</h1>
+            <h1 *ngIf="stock.qteStock==0"><span class="status text-danger ">&bull;</span>Out of stock </h1>
+
+
+
+
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th> codeProduit</th>
+            <th> libelleProduit</th>
+            <th>prixUnitaire</th>
+
+            <th>categorie_produit</th>
+            <th>date de creation</th>
+            <th>date de Derniere Modification</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let u of stock.produits">
+            <td>{{u.codeProduit}}</td>
+            <td>{{u.libelleProduit}}</td>
+            <td>{{u.prixUnitaire}}</td>
+            <td>{{u.detailProduitEntity.categorieProduit}}</td>
+            <td>{{u.detailProduitEntity.dateCreation}}</td>
+            <td>{{u.detailProduitEntity.dateDerniereModification}}</td>
+
+
+            </tr>
+
+
+
+    </tbody>
+</table>
+

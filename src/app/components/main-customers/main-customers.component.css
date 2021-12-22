@@ -1,0 +1,63 @@
+.h1, h2, h3, h4, h5, h6 {
+  font-family: "CircularStd",sans-serif;
+
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.content{
+
+  padding: 1.875rem 1.875rem 0;
+}
+.page-header {
+  margin-bottom: 1.85rem;
+}
+.align-items-center {
+  align-items: center;
+}
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+.page-header .breadcrumb {
+  background-color: transparent;
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  padding: 0;
+}
+.col-auto {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+.btn-primary {
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
+}
+.header-btn{
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.header-btn a ion-icon{
+  font-size: 60px;
+}
